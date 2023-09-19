@@ -1,132 +1,100 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2580
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fmodern\fcharset0 CourierNewPSMT;}
-{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red74\green84\blue96;\red173\green173\blue173;
-\red109\green109\blue109;\red149\green92\blue178;\red44\green119\blue164;\red172\green109\blue66;\red172\green155\blue52;
-\red166\green115\blue193;\red195\green206\blue217;\red173\green173\blue173;}
-{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c36225\c40553\c45168;\cssrgb\c73495\c73495\c73311;
-\cssrgb\c50307\c50306\c50181;\cssrgb\c65445\c45460\c75151;\cssrgb\c21512\c54139\c70165;\cssrgb\c73613\c50410\c32579;\cssrgb\c73028\c66286\c26103;
-\cssrgb\c71318\c54077\c80217;\cssrgb\c80622\c84555\c87883;\cssrgb\c73333\c73333\c73333;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\sl400\partightenfactor0
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="application/json; charset=UTF-8">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+ 
 
-\f0\fs26 \cf0 \cb2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec3 <!DOCTYPE html>\strokec4 \
-\pard\pardeftab720\sl400\partightenfactor0
-\cf0 \strokec5 <\strokec6 html\strokec5 >\strokec4 \
-\strokec5 <\strokec6 meta\strokec4  \strokec7 http-equiv\strokec5 =\strokec8 "content-type"\strokec4  \strokec7 content\strokec5 =\strokec8 "application/json; charset=UTF-8"\strokec5 >\strokec4 \
-\strokec5 <\strokec6 head\strokec5 >\strokec4 \
-\strokec5 <\strokec6 script\strokec4  \strokec7 src\strokec5 =\strokec8 "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"\strokec5 ></\strokec6 script\strokec5 >\strokec4 \
-\strokec5 <\strokec6 script\strokec5 >\strokec4 \
- \
-\
-  \strokec9 function\strokec4  \strokec10 updateDivContent\strokec11 (\strokec10 divId\strokec11 ,\strokec4  \strokec10 content\strokec11 )\strokec4  \strokec11 \{\strokec4 \
-  \strokec10 $\strokec11 (\strokec8 `#\strokec11 $\{\strokec10 divId\strokec11 \}\strokec8 `\strokec11 ).\strokec10 append\strokec11 (\strokec8 `<p>\strokec11 $\{\strokec10 content\strokec11 \}\strokec8 </p>`\strokec11 );\strokec4 \
-\pard\pardeftab720\sl400\partightenfactor0
-\cf0 \strokec11 \}\strokec4 \
-\
-    \strokec3 // Function to initialize the sidebar content\strokec4 \
-    \strokec9 function\strokec4  \strokec10 initializeSidebarContent\strokec11 ()\strokec4  \strokec11 \{\strokec4 \
-       \strokec3 // Disable the button to prevent multiple API calls\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#updateButton'\strokec11 ).\strokec10 prop\strokec11 (\strokec8 'disabled'\strokec11 ,\strokec4  \strokec9 true\strokec11 );\strokec4 \
-\
-      \strokec3 // Clear the API response content inside each div element\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#div1 p'\strokec11 ).\strokec10 remove\strokec11 ();\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#div2 p'\strokec11 ).\strokec10 remove\strokec11 ();\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#div3 p'\strokec11 ).\strokec10 remove\strokec11 ();\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#div4 p'\strokec11 ).\strokec10 remove\strokec11 ();\strokec4 \
-      \strokec3 // Call the server-side functions to get the API results\strokec4 \
-      \strokec10 google\strokec11 .\strokec10 script\strokec11 .\strokec10 run\strokec11 .\strokec10 withSuccessHandler\strokec11 (\strokec10 updateSegmentationContent\strokec11 ).\strokec10 callSegmentationAPIwithSelected\strokec11 ();\strokec4 \
-      \strokec10 google\strokec11 .\strokec10 script\strokec11 .\strokec10 run\strokec11 .\strokec10 withSuccessHandler\strokec11 (\strokec10 updateLemmatizationContent\strokec11 ).\strokec7 CallLemmatizationAPIwithSelected\strokec11 ();\strokec4 \
-      \strokec10 google\strokec11 .\strokec10 script\strokec11 .\strokec10 run\strokec11 .\strokec10 withSuccessHandler\strokec11 (\strokec10 updateSpellCheckContent\strokec11 ).\strokec10 callSpellCheckAPIwithSelected\strokec11 ();\strokec4 \
-      \strokec10 google\strokec11 .\strokec10 script\strokec11 .\strokec10 run\strokec11 .\strokec10 withSuccessHandler\strokec11 (\strokec10 updateDiacritizationContent\strokec11 ).\strokec10 callDiacritizationAPIwithSelected\strokec11 ();\strokec4 \
-    \strokec11 \}\strokec4 \
-\
-    \strokec3 // there is an issue in the event listener \strokec4 \
-    \strokec9 function\strokec4  \strokec7 HighlightAllPOS\strokec11 ()\strokec4  \strokec11 \{\strokec4  \strokec3 //2\strokec4 \
-    \strokec10 console\strokec11 .\strokec10 log\strokec11 (\strokec8 "Button clicked!"\strokec11 );\strokec4 \
-    \strokec3 // Disable the button to prevent multiple clicks\strokec4 \
-    \strokec10 $\strokec11 (\strokec8 '#highlightButton'\strokec11 ).\strokec10 prop\strokec11 (\strokec8 'disabled'\strokec11 ,\strokec4  \strokec9 true\strokec11 );\strokec4 \
-\
-    \strokec3 // Call the server-side function to highlight POS\strokec4 \
-    \strokec10 google\strokec11 .\strokec10 script\strokec11 .\strokec10 run\strokec11 .\strokec10 withSuccessHandler\strokec11 (\strokec9 function\strokec11 ()\strokec4  \strokec11 \{\strokec4 \
-      \strokec3 // Enable the button after highlighting is done\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#highlightButton'\strokec11 ).\strokec10 prop\strokec11 (\strokec8 'disabled'\strokec11 ,\strokec4  \strokec9 false\strokec11 );\strokec4 \
-    \strokec11 \}).\strokec10 highlightWordsWithMultiplePOS\strokec11 ();\strokec4  \strokec3 // server-side function name\strokec4 \
-  \strokec11 \}\strokec4 \
-\
-    \strokec3 // Function to update the segmentation content\strokec4 \
-    \strokec9 function\strokec4  \strokec10 updateSegmentationContent\strokec11 (\strokec10 content\strokec11 )\strokec4  \strokec11 \{\strokec4 \
-      \strokec10 updateDivContent\strokec11 (\strokec8 'div1'\strokec11 ,\strokec4  \strokec10 content\strokec11 );\strokec4 \
-       \strokec3 // Enable the button after updating the content\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#updateButton'\strokec11 ).\strokec10 prop\strokec11 (\strokec8 'disabled'\strokec11 ,\strokec4  \strokec9 false\strokec11 );\strokec4 \
-    \strokec11 \}\strokec4 \
-\
-    \strokec3 // Function to update the diacritization content\strokec4 \
-    \strokec9 function\strokec4  \strokec10 updateDiacritizationContent\strokec11 (\strokec10 content\strokec11 )\strokec4  \strokec11 \{\strokec4 \
-      \strokec10 updateDivContent\strokec11 (\strokec8 'div2'\strokec11 ,\strokec4  \strokec10 content\strokec11 );\strokec4 \
-       \strokec3 // Enable the button after updating the content\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#updateButton'\strokec11 ).\strokec10 prop\strokec11 (\strokec8 'disabled'\strokec11 ,\strokec4  \strokec9 false\strokec11 );\strokec4 \
-    \strokec11 \}\strokec4 \
-\
-    \strokec3 // Function to update the lemmatization content\strokec4 \
-    \strokec9 function\strokec4  \strokec10 updateLemmatizationContent\strokec11 (\strokec10 content\strokec11 )\strokec4  \strokec11 \{\strokec4 \
-      \strokec10 updateDivContent\strokec11 (\strokec8 'div3'\strokec11 ,\strokec4  \strokec10 content\strokec11 );\strokec4 \
-       \strokec3 // Enable the button after updating the content\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#updateButton'\strokec11 ).\strokec10 prop\strokec11 (\strokec8 'disabled'\strokec11 ,\strokec4  \strokec9 false\strokec11 );\strokec4 \
-    \strokec11 \}\strokec4 \
-\
-    \strokec3 // Function to update the spell check content\strokec4 \
-    \strokec9 function\strokec4  \strokec10 updateSpellCheckContent\strokec11 (\strokec10 content\strokec11 )\strokec4  \strokec11 \{\strokec4 \
-      \strokec10 updateDivContent\strokec11 (\strokec8 'div4'\strokec11 ,\strokec4  \strokec10 content\strokec11 );\strokec4 \
-       \strokec3 // Enable the button after updating the content\strokec4 \
-     \strokec10 $\strokec11 (\strokec8 '#updateButton'\strokec11 ).\strokec10 prop\strokec11 (\strokec8 'disabled'\strokec11 ,\strokec4  \strokec9 false\strokec11 );\strokec4 \
-    \strokec11 \}\strokec4 \
-\
-\
-     \strokec3 // Add event listener to the button\strokec4 \
-    \strokec10 $\strokec11 (\strokec10 document\strokec11 ).\strokec10 ready\strokec11 (\strokec9 function\strokec11 ()\strokec4  \strokec11 \{\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#updateButton'\strokec11 ).\strokec10 click\strokec11 (\strokec10 initializeSidebarContent\strokec11 );\strokec4 \
-      \strokec10 $\strokec11 (\strokec8 '#highlightButton'\strokec11 ).\strokec10 click\strokec11 (\strokec7 HighlightAllPOS\strokec11 );\strokec4  \strokec3 // 3 \strokec4 \
-        \strokec11 \});\strokec4 \
-\
-\pard\pardeftab720\sl400\partightenfactor0
-\cf0 \strokec5 </\strokec6 script\strokec5 >\strokec4 \
-\strokec5 </\strokec6 head\strokec5 >\strokec4 \
-\
-\
-\strokec5 <\strokec6 body\strokec5 >\strokec4 \
-\strokec5 <\strokec6 div\strokec4  \strokec7 id\strokec5 =\strokec8 "linguistic info"\strokec4  \strokec7 dir\strokec5 =\strokec8 "rtl"\strokec5 >\strokec4  \
-\strokec5 <\strokec6 div\strokec4  \strokec7 id\strokec5 =\strokec8 "div1"\strokec5 ><\strokec6 h3\strokec5 >
-\f1 \strokec4 \uc0\u1575 \u1604 \u1578 \u1602 \u1591 \u1610 \u1593 
-\f0 \strokec5 </\strokec6 h3\strokec5 ></\strokec6 div\strokec5 >\strokec4 \
-\strokec5 <\strokec6 div\strokec4  \strokec7 id\strokec5 =\strokec8 "div2"\strokec5 ><\strokec6 h3\strokec5 >
-\f1 \strokec4 \uc0\u1575 \u1604 \u1578 \u1588 \u1603 \u1610 \u1604 
-\f0 \strokec5 </\strokec6 h3\strokec5 ></\strokec6 div\strokec5 >\strokec4 \
-\strokec5 <\strokec6 div\strokec4  \strokec7 id\strokec5 =\strokec8 "div3"\strokec5 ><\strokec6 h3\strokec5 >
-\f1 \strokec4 \uc0\u1575 \u1589 \u1608 \u1604 
-\f0 \strokec4  
-\f1 \strokec4 \uc0\u1575 \u1604 \u1603 \u1604 \u1605 \u1575 \u1578 
-\f0 \strokec5 </\strokec6 h3\strokec5 ></\strokec6 div\strokec5 >\strokec4 \
-\strokec5 <\strokec6 div\strokec4  \strokec7 id\strokec5 =\strokec8 "div4"\strokec5 ><\strokec6 h3\strokec5 >
-\f1 \strokec4 \uc0\u1575 \u1604 \u1578 \u1589 \u1581 \u1610 \u1581 
-\f0 \strokec4  
-\f1 \strokec4 \uc0\u1575 \u1604 \u1575 \u1605 \u1604 \u1575 \u1574 \u1610 
-\f0 \strokec5 </\strokec6 h3\strokec5 ></\strokec6 div\strokec5 >\strokec4 \
-\strokec5 </\strokec6 div\strokec5 >\strokec4 \
-\
-\
-\pard\pardeftab720\sl400\partightenfactor0
-\cf0 \strokec3 <!-- Button to trigger the initialization of sidebar content -->\strokec4 \
-\
-  \strokec5 <\strokec6 button\strokec4  \strokec7 id\strokec5 =\strokec8 "updateButton"\strokec4  \strokec7 dir\strokec5 =\strokec8 "rtl"\strokec5 >\strokec4 Update Content\strokec5 </\strokec6 button\strokec5 >\strokec4 \
-  \strokec5 <\strokec6 button\strokec4  \strokec7 id\strokec5 =\strokec8 "highlightButton"\strokec4  \strokec7 dir\strokec5 =\strokec8 "rtl"\strokec5 >\strokec4 Highlight POS\strokec5 </\strokec6 button\strokec5 >\strokec4  \
-\
-  \strokec3 <!-- 1 -->\strokec4 \
-\
-\pard\pardeftab720\sl400\partightenfactor0
-\cf0 \strokec5 </\strokec6 body\strokec5 >\strokec4 \
-\strokec5 </\strokec6 html\strokec5 >\strokec4 \
-\pard\pardeftab720\sl400\partightenfactor0
-\cf0 \strokec3 <!DOCTYPE html>\cf12 \cb1 \strokec12 \
+  function updateDivContent(divId, content) {
+  $(`#${divId}`).append(`<p>${content}</p>`);
 }
+
+    // Function to initialize the sidebar content
+    function initializeSidebarContent() {
+       // Disable the button to prevent multiple API calls
+      $('#updateButton').prop('disabled', true);
+
+      // Clear the API response content inside each div element
+      $('#div1 p').remove();
+      $('#div2 p').remove();
+      $('#div3 p').remove();
+      $('#div4 p').remove();
+      // Call the server-side functions to get the API results
+      google.script.run.withSuccessHandler(updateSegmentationContent).callSegmentationAPIwithSelected();
+      google.script.run.withSuccessHandler(updateLemmatizationContent).CallLemmatizationAPIwithSelected();
+      google.script.run.withSuccessHandler(updateSpellCheckContent).callSpellCheckAPIwithSelected();
+      google.script.run.withSuccessHandler(updateDiacritizationContent).callDiacritizationAPIwithSelected();
+    }
+
+    // there is an issue in the event listener 
+    function HighlightAllPOS() { //2
+    console.log("Button clicked!");
+    // Disable the button to prevent multiple clicks
+    $('#highlightButton').prop('disabled', true);
+
+    // Call the server-side function to highlight POS
+    google.script.run.withSuccessHandler(function() {
+      // Enable the button after highlighting is done
+      $('#highlightButton').prop('disabled', false);
+    }).highlightWordsWithMultiplePOS(); // server-side function name
+  }
+
+    // Function to update the segmentation content
+    function updateSegmentationContent(content) {
+      updateDivContent('div1', content);
+       // Enable the button after updating the content
+      $('#updateButton').prop('disabled', false);
+    }
+
+    // Function to update the diacritization content
+    function updateDiacritizationContent(content) {
+      updateDivContent('div2', content);
+       // Enable the button after updating the content
+      $('#updateButton').prop('disabled', false);
+    }
+
+    // Function to update the lemmatization content
+    function updateLemmatizationContent(content) {
+      updateDivContent('div3', content);
+       // Enable the button after updating the content
+      $('#updateButton').prop('disabled', false);
+    }
+
+    // Function to update the spell check content
+    function updateSpellCheckContent(content) {
+      updateDivContent('div4', content);
+       // Enable the button after updating the content
+     $('#updateButton').prop('disabled', false);
+    }
+
+
+     // Add event listener to the button
+    $(document).ready(function() {
+      $('#updateButton').click(initializeSidebarContent);
+      $('#highlightButton').click(HighlightAllPOS); // 3 
+        });
+
+</script>
+</head>
+
+
+<body>
+<div id="linguistic info" dir="rtl"> 
+<div id="div1"><h3>التقطيع</h3></div>
+<div id="div2"><h3>التشكيل</h3></div>
+<div id="div3"><h3>اصول الكلمات</h3></div>
+<div id="div4"><h3>التصحيح الاملائي</h3></div>
+</div>
+
+
+<!-- Button to trigger the initialization of sidebar content -->
+
+  <button id="updateButton" dir="rtl">Update Content</button>
+  <button id="highlightButton" dir="rtl">Highlight POS</button> 
+
+  <!-- 1 -->
+
+</body>
+</html>
+<!DOCTYPE html>
